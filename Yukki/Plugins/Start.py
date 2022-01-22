@@ -32,15 +32,15 @@ __HELP__ = """
 
 
 /start 
-- Start the Bot.
+- Mulai Bot.
 
 
 /help 
-- Get Commands Helper Menu.
+- Dapatkan Menu Perintah.
 
 
 /settings 
-- Get Settings button.
+- Dapatkan tombol Pengaturan.
 """
 
 
@@ -56,7 +56,7 @@ async def welcome(_, message: Message):
             if member.id == BOT_ID:
                 if chat_id in await blacklisted_chats():
                     await message.reply_text(
-                        f"Hushh, Your chat group[{message.chat.title}] has been blacklisted!\n\nAsk any Sudo User to whitelist your chat"
+                        f"Hushh, grup obrolan Anda[{message.chat.title}] telah masuk daftar hitam!\n\nMinta Pengguna Sudo untuk memasukkan obrolan Anda ke daftar putih"
                     )
                     return await app.leave_chat(chat_id)
                 _assistant = await get_assistant(message.chat.id, "assistant")
