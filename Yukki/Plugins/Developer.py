@@ -21,19 +21,19 @@ from Yukki.Utilities.tasks import add_task, rm_task
 __MODULE__ = "Broadcast"
 __HELP__ = """
 **Note:**
-Only for Sudo Users.
+Hanya untuk Pengguna Sudo.
 
 
 /broadcast [Message or Reply to a Message]
-- Broadcast any message to Bot's Served Chats.
+- Siarkan pesan apa pun ke Obrolan yang Dilayani Bot.
 
 
 /broadcast_pin [Message or Reply to a Message]
-- Broadcast any message to Bot's Served Chats with message getting Pinned in chat [Disabled Notifications].
+- Siarkan pesan apa pun ke Obrolan yang Dilayani Bot dengan pesan yang disematkan di obrolan [Disabled Notifications].
 
 
 /broadcast_pin_loud [Message or Reply to a Message]
-- Broadcast any message to Bot's Served Chats with message getting Pinned in chat [Enabled Notifications].
+- Siarkan pesan apa pun ke Obrolan yang Dilayani Bot dengan pesan yang disematkan di obrolan [Enabled Notifications].
 """
 
 
