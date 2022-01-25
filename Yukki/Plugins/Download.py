@@ -22,13 +22,13 @@ __MODULE__ = "Global Ban"
 __HELP__ = """
 
 **Note:**
-Only for Sudo Users.
+Hanya untuk Pengguna Sudo.
 
 /gban [Username or Reply to a user]
-- Ban a user globally in Bot's Served Chats and prevents user from using bot commands.
+- Larang pengguna secara global di Obrolan yang Dilayani Bot dan cegah pengguna menggunakan perintah bot.
 
 /ungban [Username or Reply to a user]
-- Remove a user from Bot's GBan List.
+- Hapus pengguna dari Daftar GBan Bot.
 """
 
 
@@ -71,11 +71,11 @@ async def ytdata(_, CallbackQuery):
 
 
 inl = InlineKeyboardMarkup(
-    [[InlineKeyboardButton(text="Downloading......", callback_data=f"down")]]
+    [[InlineKeyboardButton(text="Mengunduh......", callback_data=f"down")]]
 )
 
 upl = InlineKeyboardMarkup(
-    [[InlineKeyboardButton(text="Uploading......", callback_data=f"down")]]
+    [[InlineKeyboardButton(text="Mengunggah......", callback_data=f"down")]]
 )
 
 
@@ -83,7 +83,7 @@ def inl_mark(videoid, user_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="Download or Upload Failed......", callback_data=f"down"
+                text="Download or Upload Fail......", callback_data=f"down"
             )
         ],
         [
@@ -109,7 +109,7 @@ async def boom(_, CallbackQuery):
     user_id = CallbackQuery.from_user.id
     type, format_id, videoid = callback_request.split("||")
     mystic = await CallbackQuery.edit_message_text(
-        "Download Started\n\nDownloading speed could be slow. Please hold on..",
+        "Unduh Dimulai\n\nKecepatan pengunduhan lambat. Mohon tunggu sebentar..",
         reply_markup=inl,
     )
     yturl = f"https://www.youtube.com/watch?v={videoid}"
@@ -121,16 +121,16 @@ async def boom(_, CallbackQuery):
         thumb_image_path = result["thumbnails"][0]["url"]
         channel = channel = result["channel"]["name"]
         fetched = f"""
-🔍**Track Downloaded**
+🔍**Tracks Downloaded**
 
-❇️**Title:** {title}
+❇️**Judul:** {title}
 
-⏳**Duration:** {duration} Mins
-👀**Views:** `{views}`
-🎥**Channel Name:** {channel}
+⏳**Durasi:** {duration} Mins
+👀**Tampilan:** `{views}`
+🎥**Nama Saluran:** {channel}
 🔗**Video Link:** [Link]({yturl})
 
-⚡️ __Youtube Inline Download Powered By {MUSIC_BOT_NAME}__"""
+😑__Unduhan Online Youtube Didukung oleh {MUSIC_BOT_NAME}__"""
     filext = "%(title)s.%(ext)s"
     userdir = os.path.join(os.getcwd(), "downloads", str(user_id))
     if not os.path.isdir(userdir):
@@ -245,7 +245,7 @@ async def send_file(
     CallbackQuery, med, filename, videoid, user_id, link, channel
 ):
     await CallbackQuery.edit_message_text(
-        "Upload Started\n\nUploading speed could be slow. Please hold on..",
+        "Unggah Dimulai\n\nKecepatan unggah lambat. Mohon tunggu sebentar..",
         reply_markup=upl,
     )
     try:
@@ -273,7 +273,7 @@ import subprocess as sp
 
 def probe(vid_file_path):
     if type(vid_file_path) != str:
-        raise Exception("Give ffprobe a full file path of the file")
+        raise Exception("Berikan ffprobe jalur file lengkap dari file")
 
     command = [
         "ffprobe",
@@ -317,7 +317,7 @@ async def downloadvideocli(command_to_exec):
     stdout, stderr = await process.communicate()
     e_response = stderr.decode().strip()
     t_response = stdout.decode().strip()
-    filename = t_response.split("Merging formats into")[-1].split('"')[1]
+    filename = t_response.split("Menggabungkan format menjadi")[-1].split('"')[1]
     return filename
 
 
